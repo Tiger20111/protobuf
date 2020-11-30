@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package proto;
+
+option java_package = "classes.dto";
+option java_outer_classname = "DTOProto";
+
+message DTO {
+  required int32 id = 1;
+  required string name = 2;
+  required Weather weather = 3;
+  repeated string weatherStatistics = 4;
+}
+
+message Weather {
+  required string data = 1;
+  required float temperature = 2;
+}
