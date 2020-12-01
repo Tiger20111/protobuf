@@ -9,7 +9,7 @@ message DTO {
   required int32 id = 1;
   required string name = 2;
   required Weather weather = 3;
-  repeated string weatherStatistics = 4;
+  repeated int32 weatherStatistics = 4;
 }
 
 message Weather {

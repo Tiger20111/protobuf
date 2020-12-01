@@ -62,29 +62,21 @@ public final class DTOProto {
     classes.dto.DTOProto.WeatherOrBuilder getWeatherOrBuilder();
 
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @return A list containing the weatherStatistics.
      */
-    java.util.List<java.lang.String>
-        getWeatherStatisticsList();
+    java.util.List<java.lang.Integer> getWeatherStatisticsList();
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @return The count of weatherStatistics.
      */
     int getWeatherStatisticsCount();
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @param index The index of the element to return.
      * @return The weatherStatistics at the given index.
      */
-    java.lang.String getWeatherStatistics(int index);
-    /**
-     * <code>repeated string weatherStatistics = 4;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the weatherStatistics at the given index.
-     */
-    com.google.protobuf.ByteString
-        getWeatherStatisticsBytes(int index);
+    int getWeatherStatistics(int index);
   }
   /**
    * Protobuf type {@code proto.DTO}
@@ -100,7 +92,7 @@ public final class DTOProto {
     }
     private DTO() {
       name_ = "";
-      weatherStatistics_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      weatherStatistics_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -158,13 +150,25 @@ public final class DTOProto {
               bitField0_ |= 0x00000004;
               break;
             }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 32: {
               if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                weatherStatistics_ = new com.google.protobuf.LazyStringArrayList();
+                weatherStatistics_ = newIntList();
                 mutable_bitField0_ |= 0x00000008;
               }
-              weatherStatistics_.add(bs);
+              weatherStatistics_.addInt(input.readInt32());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
+                weatherStatistics_ = newIntList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                weatherStatistics_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             default: {
@@ -183,7 +187,7 @@ public final class DTOProto {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          weatherStatistics_ = weatherStatistics_.getUnmodifiableView();
+          weatherStatistics_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -297,38 +301,30 @@ public final class DTOProto {
     }
 
     public static final int WEATHERSTATISTICS_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList weatherStatistics_;
+    private com.google.protobuf.Internal.IntList weatherStatistics_;
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @return A list containing the weatherStatistics.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
         getWeatherStatisticsList() {
       return weatherStatistics_;
     }
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @return The count of weatherStatistics.
      */
     public int getWeatherStatisticsCount() {
       return weatherStatistics_.size();
     }
     /**
-     * <code>repeated string weatherStatistics = 4;</code>
+     * <code>repeated int32 weatherStatistics = 4;</code>
      * @param index The index of the element to return.
      * @return The weatherStatistics at the given index.
      */
-    public java.lang.String getWeatherStatistics(int index) {
-      return weatherStatistics_.get(index);
-    }
-    /**
-     * <code>repeated string weatherStatistics = 4;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the weatherStatistics at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getWeatherStatisticsBytes(int index) {
-      return weatherStatistics_.getByteString(index);
+    public int getWeatherStatistics(int index) {
+      return weatherStatistics_.getInt(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -371,7 +367,7 @@ public final class DTOProto {
         output.writeMessage(3, getWeather());
       }
       for (int i = 0; i < weatherStatistics_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, weatherStatistics_.getRaw(i));
+        output.writeInt32(4, weatherStatistics_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -396,7 +392,8 @@ public final class DTOProto {
       {
         int dataSize = 0;
         for (int i = 0; i < weatherStatistics_.size(); i++) {
-          dataSize += computeStringSizeNoTag(weatherStatistics_.getRaw(i));
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(weatherStatistics_.getInt(i));
         }
         size += dataSize;
         size += 1 * getWeatherStatisticsList().size();
@@ -604,7 +601,7 @@ public final class DTOProto {
           weatherBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
-        weatherStatistics_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        weatherStatistics_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -651,7 +648,7 @@ public final class DTOProto {
           to_bitField0_ |= 0x00000004;
         }
         if (((bitField0_ & 0x00000008) != 0)) {
-          weatherStatistics_ = weatherStatistics_.getUnmodifiableView();
+          weatherStatistics_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.weatherStatistics_ = weatherStatistics_;
@@ -1010,83 +1007,68 @@ public final class DTOProto {
         return weatherBuilder_;
       }
 
-      private com.google.protobuf.LazyStringList weatherStatistics_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private com.google.protobuf.Internal.IntList weatherStatistics_ = emptyIntList();
       private void ensureWeatherStatisticsIsMutable() {
         if (!((bitField0_ & 0x00000008) != 0)) {
-          weatherStatistics_ = new com.google.protobuf.LazyStringArrayList(weatherStatistics_);
+          weatherStatistics_ = mutableCopy(weatherStatistics_);
           bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @return A list containing the weatherStatistics.
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.Integer>
           getWeatherStatisticsList() {
-        return weatherStatistics_.getUnmodifiableView();
+        return ((bitField0_ & 0x00000008) != 0) ?
+                 java.util.Collections.unmodifiableList(weatherStatistics_) : weatherStatistics_;
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @return The count of weatherStatistics.
        */
       public int getWeatherStatisticsCount() {
         return weatherStatistics_.size();
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @param index The index of the element to return.
        * @return The weatherStatistics at the given index.
        */
-      public java.lang.String getWeatherStatistics(int index) {
-        return weatherStatistics_.get(index);
+      public int getWeatherStatistics(int index) {
+        return weatherStatistics_.getInt(index);
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the weatherStatistics at the given index.
-       */
-      public com.google.protobuf.ByteString
-          getWeatherStatisticsBytes(int index) {
-        return weatherStatistics_.getByteString(index);
-      }
-      /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @param index The index to set the value at.
        * @param value The weatherStatistics to set.
        * @return This builder for chaining.
        */
       public Builder setWeatherStatistics(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWeatherStatisticsIsMutable();
-        weatherStatistics_.set(index, value);
+          int index, int value) {
+        ensureWeatherStatisticsIsMutable();
+        weatherStatistics_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @param value The weatherStatistics to add.
        * @return This builder for chaining.
        */
-      public Builder addWeatherStatistics(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWeatherStatisticsIsMutable();
-        weatherStatistics_.add(value);
+      public Builder addWeatherStatistics(int value) {
+        ensureWeatherStatisticsIsMutable();
+        weatherStatistics_.addInt(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @param values The weatherStatistics to add.
        * @return This builder for chaining.
        */
       public Builder addAllWeatherStatistics(
-          java.lang.Iterable<java.lang.String> values) {
+          java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureWeatherStatisticsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, weatherStatistics_);
@@ -1094,27 +1076,12 @@ public final class DTOProto {
         return this;
       }
       /**
-       * <code>repeated string weatherStatistics = 4;</code>
+       * <code>repeated int32 weatherStatistics = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearWeatherStatistics() {
-        weatherStatistics_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        weatherStatistics_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string weatherStatistics = 4;</code>
-       * @param value The bytes of the weatherStatistics to add.
-       * @return This builder for chaining.
-       */
-      public Builder addWeatherStatisticsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWeatherStatisticsIsMutable();
-        weatherStatistics_.add(value);
         onChanged();
         return this;
       }
@@ -1913,7 +1880,7 @@ public final class DTOProto {
     java.lang.String[] descriptorData = {
       "\n\017shema/dto.proto\022\005proto\"[\n\003DTO\022\n\n\002id\030\001 " +
       "\002(\005\022\014\n\004name\030\002 \002(\t\022\037\n\007weather\030\003 \002(\0132\016.pro" +
-      "to.Weather\022\031\n\021weatherStatistics\030\004 \003(\t\",\n" +
+      "to.Weather\022\031\n\021weatherStatistics\030\004 \003(\005\",\n" +
       "\007Weather\022\014\n\004data\030\001 \002(\t\022\023\n\013temperature\030\002 " +
       "\002(\002B\027\n\013classes.dtoB\010DTOProto"
     };

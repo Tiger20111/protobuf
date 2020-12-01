@@ -1,0 +1,73 @@
+# JMH version: 1.26
+# VM version: JDK 1.8.0_251, Java HotSpot(TM) 64-Bit Server VM, 25.251-b08
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/bin/java
+# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=58098:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 6 threads, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: protobuf.serialization.ProtobufSerializator.setSerializationThroughput
+
+# Run progress: 0,00% complete, ETA 00:03:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 3066672,465 ops/s
+# Warmup Iteration   2: 3268125,607 ops/s
+# Warmup Iteration   3: 3240283,391 ops/s
+# Warmup Iteration   4: 3078215,314 ops/s
+# Warmup Iteration   5: 3158441,561 ops/s
+Iteration   1: 3086603,806 ops/s
+Iteration   2: 3258152,006 ops/s
+Iteration   3: 3269944,359 ops/s
+Iteration   4: 3262260,318 ops/s
+Iteration   5: 3276620,376 ops/s
+
+
+Result "protobuf.serialization.ProtobufSerializator.setSerializationThroughput":
+  3230716,173 ±(99.9%) 311415,567 ops/s [Average]
+  (min, avg, max) = (3086603,806, 3230716,173, 3276620,376), stdev = 80873,634
+  CI (99.9%): [2919300,606, 3542131,740] (assumes normal distribution)
+
+
+# JMH version: 1.26
+# VM version: JDK 1.8.0_251, Java HotSpot(TM) 64-Bit Server VM, 25.251-b08
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/bin/java
+# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=58098:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 6 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: protobuf.serialization.ProtobufSerializator.setSerializationTime
+
+# Run progress: 50,00% complete, ETA 00:01:41
+# Fork: 1 of 1
+# Warmup Iteration   1: ≈ 10⁻⁶ s/op
+# Warmup Iteration   2: ≈ 10⁻⁶ s/op
+# Warmup Iteration   3: ≈ 10⁻⁶ s/op
+# Warmup Iteration   4: ≈ 10⁻⁶ s/op
+# Warmup Iteration   5: ≈ 10⁻⁶ s/op
+Iteration   1: ≈ 10⁻⁶ s/op
+Iteration   2: ≈ 10⁻⁶ s/op
+Iteration   3: ≈ 10⁻⁶ s/op
+Iteration   4: ≈ 10⁻⁶ s/op
+Iteration   5: ≈ 10⁻⁶ s/op
+
+
+Result "protobuf.serialization.ProtobufSerializator.setSerializationTime":
+  ≈ 10⁻⁶ s/op
+
+
+# Run complete. Total time: 00:03:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                         Mode  Cnt        Score        Error  Units
+ProtobufSerializator.setSerializationThroughput  thrpt    5  3230716,173 ± 311415,567  ops/s
+ProtobufSerializator.setSerializationTime         avgt    5       ≈ 10⁻⁶                s/op
+
+Process finished with exit code 0
