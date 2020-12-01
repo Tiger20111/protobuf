@@ -30,7 +30,7 @@ public class ProtobufDeserializator {
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(ProtobufSerializator.class.getSimpleName())
+                .include(ProtobufDeserializator.class.getSimpleName())
                 .threads(6)
                 .warmupIterations(5)
                 .measurementIterations(5)
